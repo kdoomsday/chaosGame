@@ -5,7 +5,17 @@
   2. Pick a random starting position
   3. Randomly select one of the points from 1.
   4. New position is half way between last position and the selected point
-  5. Repeat from 3 on as many times as wanted.
+  5. Repeat step 3 and on as many times as wanted.
 * Expected output
   If we draw each new point, we should get certain fractal representations, which
 change depending on the number of starting points.
+* Implementation
+** ChaosCalc
+*** Takes info about the game and calculates the points
+** DrawPoints
+*** Has implementations for actually showing the points
+*** Currently has 2 implementations:
+    - One based on Doodle, which is short and stackoverflows fairly easily
+    - One based on java.swing.Graphics which is a bit uglier but can draw as much as we want
+** ChaosMain
+*** This wires things together and runs the game
