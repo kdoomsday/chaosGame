@@ -1,2 +1,2 @@
-# chaosGame
+* chaosGame
 Chaos game implementation
