@@ -6,8 +6,8 @@ object ChaosMain extends App {
   val nPoints = 5
   val iterations = 100000
 
-  val calc = new ChaosCalc(width, height, nPoints, iterations)
   val painter = new GraphicsPainter(width, height)
+  val state = CompiledInitialState.load()
 
-  painter paint calc.play()
+  painter paint ChaosCalc.play(state)
 }

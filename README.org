@@ -10,12 +10,23 @@
   If we draw each new point, we should get certain fractal representations, which
 change depending on the number of starting points.
 * Implementation
+** ChaosGame
+  Types and useful general implementations
 ** ChaosCalc
-*** Takes info about the game and calculates the points
+  Takes info about the game and calculates the points
 ** DrawPoints
-*** Has implementations for actually showing the points
+  Has implementations for actually showing the points
 *** Currently has 2 implementations:
     - One based on Doodle, which is short and stackoverflows fairly easily
     - One based on java.swing.Graphics which is a bit uglier but can draw as much as we want
 ** ChaosMain
-*** This wires things together and runs the game
+  This wires things together and runs the game
+** ChaosInitialState
+  Allows for loading of initial state to be used for ChaosCalc
+*** Implementations:
+    - RandomInitialState
+      - Has preset width, height, # of points and iterations
+      - Randomly chooses start and game positions
+    - CompiledInitialState
+      - Has everything preset in the code
+      - Works when running directly from sbt, without having to parse a config file
