@@ -1,11 +1,11 @@
 * Chaos Game
   Chaos game implementation as presented in https://www.youtube.com/watch?v=kbKtFN71Lfs
 * Rules
-  1. Pick N points in a 2D plane and label them
-  2. Pick a random starting position
+  1. Pick N points in a 2D plane
+  2. Pick a starting position
   3. Randomly select one of the points from 1.
-  4. New position is half way between last position and the selected point
-     - Doesn't have to be half way. Can be a third or any other fraction of distance
+  4. Move to a new position that is half way between last position and the selected point
+     (it doesn't have to be half way, it can be a third or anything else)
   5. Repeat step 3 and on as many times as wanted.
 * Expected output
   If we draw each new point, we should get certain fractal representations, which
