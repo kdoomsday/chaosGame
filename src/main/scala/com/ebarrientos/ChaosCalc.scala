@@ -8,10 +8,10 @@ import scala.util.Random
 object ChaosCalc {
 
   // Medio camino entre un punto y el otro
-  private[this] def halfPoint(p1: Punto, p2: Punto): Punto = {
+  private[this] def halfPoint(p1: Punto, p2: Punto, distFactor: Double): Punto = {
     val (x1, y1) = p1
     val (x2, y2) = p2
-    ((x1 + x2) / 2.0, (y1 + y2) / 2.0)
+    ((x1 + x2) * distFactor, (y1 + y2) * distFactor)
   }
 
   /** Randomly select one of the positions */
@@ -26,16 +26,17 @@ object ChaosCalc {
     iterations: Int,
     lastPoint: Punto,
     prev: List[Punto],
-    positions: IndexedSeq[Punto]
+    positions: IndexedSeq[Punto],
+    distFactor: Double
   ): List[Punto] = {
     if (iterations <= 0) prev
     else {
-      val point = halfPoint(lastPoint, nextPos(positions))
-      findPoints(iterations - 1, point, point :: prev, positions)
+      val point = halfPoint(lastPoint, nextPos(positions), distFactor)
+      findPoints(iterations - 1, point, point :: prev, positions, distFactor)
     }
   }
 
   /** Play the game and return the result */
   def play(state: InitialState): Seq[Punto] =
-    findPoints(state.iterations, state.start, state.start :: state.points.toList, state.points)
+    findPoints(state.iterations, state.start, state.start :: state.points.toList, state.points, state.distanceFactor)
 }

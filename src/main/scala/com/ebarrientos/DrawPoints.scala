@@ -24,8 +24,8 @@ object DoodlePainter extends Painter {
 
 // Painter that uses straight swing
 class GraphicsPainter(width: Int, height: Int) extends Painter {
-  import javax.swing.JFrame
-  import javax.swing.JPanel
+  import java.awt.event.ActionEvent
+  import javax.swing._
 
   private[this] val radius = 2
 
@@ -36,11 +36,18 @@ class GraphicsPainter(width: Int, height: Int) extends Painter {
 
     val panel = new JPanel()
     f.getContentPane().add(panel)
+    panel.getInputMap().put(KeyStroke.getKeyStroke("F2"), "quit")
+    panel.getActionMap().put("quit", quit(f))
 
     f.setVisible(true)
     f.setLocationRelativeTo(null)
 
     (f, panel.getGraphics())
+  }
+
+  // Action to quit the app
+  private[this] def quit(frame: JFrame): Action = new AbstractAction {
+    def actionPerformed(e: ActionEvent) = frame.dispose()
   }
 
   // Convert dd coordinate to ii coordinate

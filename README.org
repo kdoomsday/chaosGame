@@ -5,10 +5,12 @@
   2. Pick a random starting position
   3. Randomly select one of the points from 1.
   4. New position is half way between last position and the selected point
+     - Doesn't have to be half way. Can be a third or any other fraction of distance
   5. Repeat step 3 and on as many times as wanted.
 * Expected output
   If we draw each new point, we should get certain fractal representations, which
-change depending on the number of starting points.
+change depending on the number and position of the starting points and the fraction
+distance we travel
 * Implementation
 ** ChaosGame
   Types and useful general implementations
